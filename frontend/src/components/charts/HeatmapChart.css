@@ -1,0 +1,52 @@
+.heatmap-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+}
+
+.heatmap-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.8125rem;
+}
+
+.heatmap-th {
+  padding: var(--space-sm) var(--space-md);
+  text-align: right;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--glass-border);
+  white-space: nowrap;
+}
+
+.heatmap-th--label {
+  text-align: left;
+  min-width: 180px;
+}
+
+.heatmap-row {
+  transition: background 0.2s ease;
+}
+.heatmap-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.heatmap-td {
+  padding: var(--space-sm) var(--space-md);
+  text-align: right;
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  transition: background 0.2s ease;
+}
+
+.heatmap-td--label {
+  text-align: left;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--text-primary);
+}
