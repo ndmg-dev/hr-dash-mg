@@ -52,6 +52,23 @@ def health_check() -> dict[str, str]:
     }
 
 
+# ── Debug endpoint ─────────────────────────────────────────────────────
+@app.get("/api/debug")
+def debug_info():
+    import os
+    static_dir = os.path.join(os.path.dirname(__file__), "..", "static")
+    exists = os.path.exists(static_dir)
+    contents = os.listdir(static_dir) if exists else []
+    return {
+        "environment": settings.environment,
+        "file": __file__,
+        "static_dir": static_dir,
+        "exists": exists,
+        "contents": contents,
+        "cwd": os.getcwd()
+    }
+
+
 # ── Static Files (Production) ──────────────────────────────────────────
 if settings.environment == "production":
     static_dir = os.path.join(os.path.dirname(__file__), "..", "static")
