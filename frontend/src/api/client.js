@@ -3,7 +3,7 @@
  * Wraps fetch calls to the FastAPI server with error handling.
  */
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE = import.meta.env.VITE_API_URL || '';
 
 class ApiError extends Error {
   constructor(message, status) {
