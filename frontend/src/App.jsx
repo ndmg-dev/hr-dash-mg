@@ -56,8 +56,7 @@ export default function App() {
         }}>
           <AlertCircle size={18} />
           <div>
-            Erro ao carregar dados. Verifique se o backend está rodando em{' '}
-            <code style={{ fontFamily: 'var(--font-mono)' }}>http://localhost:8000</code>.
+            Erro ao carregar dados do servidor.
           </div>
         </div>
       )}
