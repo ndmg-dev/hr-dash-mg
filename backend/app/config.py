@@ -14,7 +14,7 @@ from pydantic_settings import BaseSettings
 BASE_DIR = Path(__file__).resolve().parent.parent          # backend/
 DATA_DIR = BASE_DIR / "data"
 DATASET_PATH = DATA_DIR / "dataset.xlsx"
-BENEFITS_DATASET_PATH = BASE_DIR.parent / "Ranking_Beneficios_Base_Dashboard.xlsx"
+BENEFITS_DATASET_PATH = DATA_DIR / "Ranking_Beneficios_Base_Dashboard.xlsx"
 
 
 class Settings(BaseSettings):
