@@ -25,9 +25,6 @@ export default function Benefits({ data, loading }) {
     is_mg: c.is_mg
   }));
 
-  // Create customized colors for ranking chart
-  const rankingColors = rankingData.map(d => d.is_mg ? 'var(--gold)' : 'var(--glass-border)');
-
   return (
     <div className="page animate-fade-in">
       <section className="page__section">
@@ -50,6 +47,7 @@ export default function Benefits({ data, loading }) {
             suffix="%"
             icon={<Award size={18} />}
             delay={1}
+            description="Índice de adoção de benefícios da Mendonça Galvão."
             className="animate-slide-up delay-1"
           />
           <MetricCard
@@ -58,6 +56,7 @@ export default function Benefits({ data, loading }) {
             suffix="%"
             icon={<Globe size={18} />}
             delay={2}
+            description="Média de adoção entre as empresas concorrentes."
             className="animate-slide-up delay-2"
           />
           <MetricCard
@@ -67,6 +66,7 @@ export default function Benefits({ data, loading }) {
             delay={3}
             trend={overview.gap_count > 0 ? "down" : "neutral"}
             trendLabel={overview.gap_count > 0 ? "Atenção necessária" : "Alinhado"}
+            description="Benefícios onde a empresa está abaixo do mercado."
             className="animate-slide-up delay-3"
           />
           <MetricCard
@@ -76,6 +76,7 @@ export default function Benefits({ data, loading }) {
             delay={4}
             trend={overview.high_impact_opportunities > 0 ? "down" : "neutral"}
             trendLabel="Alto impacto"
+            description="Gaps em benefícios de alto impacto na atração."
             className="animate-slide-up delay-4"
           />
         </div>
@@ -108,7 +109,7 @@ export default function Benefits({ data, loading }) {
               xKey="categoria_beneficio" 
               bars={[
                 { key: 'mg_score', color: 'var(--gold)', name: 'Mendonça Galvão' },
-                { key: 'market_score', color: 'var(--glass-border)', name: 'Média Mercado' }
+                { key: 'market_score', color: 'var(--silver-dark)', name: 'Média Mercado' }
               ]} 
               horizontal={true}
               height={340}
