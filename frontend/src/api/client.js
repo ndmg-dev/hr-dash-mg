@@ -43,7 +43,21 @@ const api = {
   getSalary: () => get('/api/salary'),
   getTenure: () => get('/api/tenure'),
   getRoles: () => get('/api/roles'),
-  getPresentation: () => get('/api/presentation'),
+  getPresentation: async () => {
+    const [pres, ben] = await Promise.all([
+      get('/api/presentation'),
+      get('/api/benefits/presentation-insights')
+    ]);
+    return { ...pres, benefits_insights: ben };
+  },
+  getBenefits: async () => {
+    const [overview, ranking, matrix] = await Promise.all([
+      get('/api/benefits/overview'),
+      get('/api/benefits/ranking'),
+      get('/api/benefits/matrix')
+    ]);
+    return { overview, ranking, matrix };
+  },
   
   getConfidential: async (password) => {
     const url = `${API_BASE}/api/confidential/employees`;

@@ -14,6 +14,7 @@ from pydantic_settings import BaseSettings
 BASE_DIR = Path(__file__).resolve().parent.parent          # backend/
 DATA_DIR = BASE_DIR / "data"
 DATASET_PATH = DATA_DIR / "dataset.xlsx"
+BENEFITS_DATASET_PATH = BASE_DIR.parent / "Ranking_Beneficios_Base_Dashboard.xlsx"
 
 
 class Settings(BaseSettings):
@@ -27,6 +28,7 @@ class Settings(BaseSettings):
 
     # ── Data source ────────────────────────────────────────────────────
     dataset_path: Path = Field(default=DATASET_PATH)
+    benefits_dataset_path: Path = Field(default=BENEFITS_DATASET_PATH)
 
     # ── CORS ───────────────────────────────────────────────────────────
     cors_origins: list[str] = [

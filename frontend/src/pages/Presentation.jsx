@@ -100,9 +100,15 @@ export default function Presentation({ data, loading }) {
 
   if (loading || !data) return <Loader size="lg" text="Preparando apresentação..." />;
 
-  const storyCards = data.story_cards || [];
+  const storyCards = [
+    ...(data.story_cards || []),
+    ...(data.benefits_insights?.insights || [])
+  ];
   const keyFindings = data.key_findings || [];
-  const recommendations = data.recommendations || [];
+  const recommendations = [
+    ...(data.recommendations || []),
+    ...(data.benefits_insights?.recommendations || [])
+  ];
 
   const CategoryIcon = ({ category }) => {
     const icons = {

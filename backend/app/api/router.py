@@ -12,6 +12,7 @@ from app.api.endpoints import (
     roles,
     salary,
     tenure,
+    benefits,
 )
 
 router = APIRouter(prefix="/api")
@@ -23,3 +24,4 @@ router.include_router(salary.router)
 router.include_router(tenure.router)
 router.include_router(roles.router)
 router.include_router(presentation.router)
+router.include_router(benefits.router)

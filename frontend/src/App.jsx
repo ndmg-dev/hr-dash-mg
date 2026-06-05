@@ -2,6 +2,7 @@ import { useDashboard } from './hooks/useDashboard';
 import { AlertCircle } from 'react-feather';
 import DashboardLayout from './components/layout/DashboardLayout';
 import Overview from './pages/Overview';
+import Benefits from './pages/Benefits';
 import Expectations from './pages/Expectations';
 import Salary from './pages/Salary';
 import Tenure from './pages/Tenure';
@@ -25,6 +26,8 @@ export default function App() {
     switch (activeTab) {
       case 'overview':
         return <Overview data={data.overview} loading={loading.overview} />;
+      case 'benefits':
+        return <Benefits data={data.benefits} loading={loading.benefits} />;
       case 'expectations':
         return <Expectations data={data.expectations} loading={loading.expectations} />;
       case 'salary':

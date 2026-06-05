@@ -10,6 +10,7 @@ import { useApi } from './useApi';
 const TABS = [
   { id: 'presentation', label: 'Apresentação', icon: 'Monitor' },
   { id: 'overview', label: 'Visão Geral', icon: 'BarChart2' },
+  { id: 'benefits', label: 'Benefícios', icon: 'Award' },
   { id: 'expectations', label: 'Expectativas', icon: 'Target' },
   { id: 'salary', label: 'Salários', icon: 'DollarSign' },
   { id: 'tenure', label: 'Tempo & Carreira', icon: 'Clock' },
@@ -20,6 +21,7 @@ export function useDashboard() {
   const [activeTab, setActiveTab] = useState('presentation');
 
   const overview = useApi(api.getOverview);
+  const benefits = useApi(api.getBenefits);
   const expectations = useApi(api.getExpectations);
   const salary = useApi(api.getSalary);
   const tenure = useApi(api.getTenure);
@@ -30,10 +32,10 @@ export function useDashboard() {
     setActiveTab(tabId);
   }, []);
 
-  const isLoading = overview.loading || expectations.loading ||
+  const isLoading = overview.loading || benefits.loading || expectations.loading ||
     salary.loading || tenure.loading || roles.loading || presentation.loading;
 
-  const hasError = overview.error || expectations.error ||
+  const hasError = overview.error || benefits.error || expectations.error ||
     salary.error || tenure.error || roles.error || presentation.error;
 
   return {
@@ -44,6 +46,7 @@ export function useDashboard() {
     hasError,
     data: {
       overview: overview.data,
+      benefits: benefits.data,
       expectations: expectations.data,
       salary: salary.data,
       tenure: tenure.data,
@@ -52,6 +55,7 @@ export function useDashboard() {
     },
     loading: {
       overview: overview.loading,
+      benefits: benefits.loading,
       expectations: expectations.loading,
       salary: salary.loading,
       tenure: tenure.loading,
@@ -60,6 +64,7 @@ export function useDashboard() {
     },
     errors: {
       overview: overview.error,
+      benefits: benefits.error,
       expectations: expectations.error,
       salary: salary.error,
       tenure: tenure.error,
